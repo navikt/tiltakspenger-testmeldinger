@@ -3,7 +3,6 @@ package no.nav.tiltakspenger.testmeldinger
 import mu.KotlinLogging
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.helse.rapids_rivers.RapidsConnection
-import no.nav.tiltakspenger.testmeldinger.routes.naisRoutes
 import no.nav.tiltakspenger.testmeldinger.routes.testmeldingerAPI
 
 private val LOG = KotlinLogging.logger { }
@@ -13,7 +12,7 @@ internal class ApplicationBuilder(config: Map<String, String>) : RapidsConnectio
     private val rapidsConnection: RapidsConnection = RapidApplication.Builder(
         RapidApplication.RapidApplicationConfig.fromEnv(config)
     ).withKtorModule {
-        naisRoutes()
+        // naisRoutes() Denne var ikke i bruk i -vedtak, så jeg kommenterer den ut her også
         testmeldingerAPI(testmeldingPublisher())
     }.build()
 
