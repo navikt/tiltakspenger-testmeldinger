@@ -8,9 +8,8 @@ metadata:
 spec:
   image: {{ image }}
   port: 8080
-# Hvis det trengs en ingress så må den lages så den er ulik for dev og prod
-#  ingresses:
-#    - https://{{ name }}.dev.intern.nav.no
+  ingresses:
+    - {{ ingress.url }}
   azure:
     application:
       enabled: true

@@ -1,2 +1,4 @@
 kafka:
   pool: nav-dev
+ingress:
+  url: https://tiltakspenger-testmeldinger.dev.intern.nav.no
