@@ -31,6 +31,7 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
         }
         LOG.info("Setting up soknad path")
         get("/soknad") {
+            testmeldingPublisher.sendSøknad()
             call.respond("{ \"okidokey\": true }")
         }
     }
