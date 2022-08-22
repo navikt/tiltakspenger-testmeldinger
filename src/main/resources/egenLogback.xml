@@ -26,6 +26,8 @@
 
     <logger name="no.nav.helse.rapids_rivers" level="INFO"/>
 
+    <logger name="io.ktor" level="DEBUG"/>
+
     <logger name="tjenestekall" level="DEBUG" additivity="false">
         <appender-ref ref="secureLog"/>
     </logger>
