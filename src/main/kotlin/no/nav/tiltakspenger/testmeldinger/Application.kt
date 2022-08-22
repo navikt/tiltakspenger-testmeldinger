@@ -2,15 +2,17 @@ package no.nav.tiltakspenger.testmeldinger
 
 import mu.KotlinLogging
 
-private val LOG = KotlinLogging.logger {}
-private val SECURELOG = KotlinLogging.logger("tjenestekall")
-
 fun main() {
+    System.setProperty("logback.configurationFile", "egenLogback.xml")
+
+    val log = KotlinLogging.logger {}
+    val securelog = KotlinLogging.logger("tjenestekall")
+
     Thread.setDefaultUncaughtExceptionHandler { _, e ->
-        LOG.error { "Uncaught exception logget i securelog" }
-        SECURELOG.error(e) { e.message }
+        log.error { "Uncaught exception logget i securelog" }
+        securelog.error(e) { e.message }
     }
-    LOG.info { "entering main" }
+    log.info { "entering main" }
     ApplicationBuilder(Configuration.rapidsAndRivers).start()
-    LOG.info { "ending main" }
+    log.info { "ending main" }
 }
