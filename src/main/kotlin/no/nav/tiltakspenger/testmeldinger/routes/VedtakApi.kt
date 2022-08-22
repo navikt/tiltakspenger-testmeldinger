@@ -13,21 +13,19 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
 import no.nav.tiltakspenger.testmeldinger.TestmeldingPublisher
 
-internal fun testmeldingerAPI(testmeldingPublisher: TestmeldingPublisher): Application.() -> Unit {
-    return {
-        jacksonSerialization()
-        routing {
-            get("/testmeldinger") {
-                testmeldingPublisher.sendPersonBehovTestMessage()
-                testmeldingPublisher.sendYtelserBehovTestMessage()
-                testmeldingPublisher.sendTiltakBehovTestMessage()
-                testmeldingPublisher.sendSkjermingBehovTestMessage()
-                testmeldingPublisher.sendInstitusjonBehovTestMessage()
-                call.respond("{ \"okidokey\": true }")
-            }
-            get("/soknad") {
-                call.respond("{ \"okidokey\": true }")
-            }
+internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPublisher) {
+    jacksonSerialization()
+    routing {
+        get("/testmeldinger") {
+            testmeldingPublisher.sendPersonBehovTestMessage()
+            testmeldingPublisher.sendYtelserBehovTestMessage()
+            testmeldingPublisher.sendTiltakBehovTestMessage()
+            testmeldingPublisher.sendSkjermingBehovTestMessage()
+            testmeldingPublisher.sendInstitusjonBehovTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/soknad") {
+            call.respond("{ \"okidokey\": true }")
         }
     }
 }
