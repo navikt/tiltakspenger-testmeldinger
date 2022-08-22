@@ -11,11 +11,16 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
+import mu.KotlinLogging
 import no.nav.tiltakspenger.testmeldinger.TestmeldingPublisher
+
+private val LOG = KotlinLogging.logger { }
 
 internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPublisher) {
     jacksonSerialization()
+    LOG.info("Setting up routing")
     routing {
+        LOG.info("Setting up testmeldinger path")
         get("/testmeldinger") {
             testmeldingPublisher.sendPersonBehovTestMessage()
             testmeldingPublisher.sendYtelserBehovTestMessage()
@@ -24,6 +29,7 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendInstitusjonBehovTestMessage()
             call.respond("{ \"okidokey\": true }")
         }
+        LOG.info("Setting up soknad path")
         get("/soknad") {
             call.respond("{ \"okidokey\": true }")
         }
