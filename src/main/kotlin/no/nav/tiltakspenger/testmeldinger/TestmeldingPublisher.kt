@@ -27,7 +27,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         // language=JSON
         val json = """
             { 
-            "@behov" : ["ytelser"],
+            "@behov" : ["arenaytelser"],
             "@id" : "test",
             "@behovId": "behovId",
             "ident": "05906398291",
@@ -44,7 +44,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         // language=JSON
         val json = """
             { 
-            "@behov" : ["tiltak"],
+            "@behov" : ["arenatiltak"],
             "@id" : "test",
             "@behovId": "behovId",
             "ident": "05906398291",
