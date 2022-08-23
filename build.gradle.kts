@@ -1,7 +1,7 @@
 val javaVersion = JavaVersion.VERSION_17
 val jacksonVersion = "2.13.3"
 val ktorVersion = "2.1.0"
-val mockkVersion = "1.12.6"
+val mockkVersion = "1.12.5"
 
 plugins {
     application
