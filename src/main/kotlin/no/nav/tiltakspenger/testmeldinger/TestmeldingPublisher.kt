@@ -88,46 +88,107 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         LOG.info { "vi sendte en institusjon behovsmelding" }
     }
 
-    fun sendSøknad() {
-        LOG.info { "vi sender en søknad event" }
+    fun sendSøknadArena() {
+        LOG.info { "vi sender en søknad med tiltak fra Arenaevent" }
         // language=JSON
         val json = """
         {
           "@event_name": "søknad_mottatt",
-          "testmelding": true,
           "søknad": {
-            "id": "13306",
-            "fornavn": "LEVENDE",
-            "etternavn": "POTET",
-            "ident": "04927799109",
+            "id": "12008",
+            "fornavn": "TALENTFULL",
+            "etternavn": "BOLLE",
+            "ident": "20058803546",
             "deltarKvp": false,
             "deltarIntroduksjonsprogrammet": false,
             "oppholdInstitusjon": false,
             "typeInstitusjon": null,
-            "tiltaksArrangoer": "foo",
-            "tiltaksType": "JOBSOK",
-            "opprettet": "2022-06-29T16:24:02.608",
-            "brukerRegistrertStartDato": "2022-06-21",
-            "brukerRegistrertSluttDato": "2022-06-30",
-            "systemRegistrertStartDato": null,
-            "systemRegistrertSluttDato": null,
-            "barnetillegg": []
+            "opprettet": "2021-12-20T13:08:38.444",
+            "barnetillegg": [
+              {
+                "fornavn": "SMEKKER",
+                "etternavn": "STAUDE",
+                "alder": 8,
+                "ident": "16081376917",
+                "bosted": "NOR"
+              },
+              {
+                "fornavn": null,
+                "etternavn": null,
+                "alder": 13,
+                "ident": "13120875919",
+                "bosted": "NOR"
+              }
+            ],
+            "arenaTiltak": {
+              "arenaId": "136347592",
+              "arrangoer": "JOBLEARN AS",
+              "harSluttdatoFraArena": false,
+              "navn": "Jobbklubb",
+              "erIEndreStatus": false,
+              "opprinneligSluttdato": null,
+              "opprinneligStartdato": "2021-12-06",
+              "sluttdato": "2021-12-31",
+              "startdato": "2021-12-06"
+            },
+            "brukerregistrertTiltak": null
           },
-          "@id": "369bf01c-f46f-4cb9-ba0d-01beb0905edc",
-          "@opprettet": "2022-06-29T16:25:33.598375671",
-          "system_read_count": 1,
+          "@id": "bc5592c4-923b-4cf7-9bb9-013fb041b560",
+          "@opprettet": "2022-08-26T13:50:36.26047",
+          "system_read_count": 0,
           "system_participating_services": [
             {
-              "id": "369bf01c-f46f-4cb9-ba0d-01beb0905edc",
-              "time": "2022-06-29T16:25:33.598375671",
-              "service": "tiltakspenger-mottak",
-              "instance": "tiltakspenger-mottak-6c65db7887-ffwcv",
-              "image": "ghcr.io/navikt/tiltakspenger-mottak:2074ee7461ad748d7c99d26ee5b7374e0c7fd9f4"
+              "id": "bc5592c4-923b-4cf7-9bb9-013fb041b560",
+              "time": "2022-08-26T13:50:36.260470"
             }
           ]
         }
         """.trimIndent()
         rapidsConnection.publish(json)
-        LOG.info { "vi sendte en søknad event" }
+        LOG.info { "vi sendte en søknad med tiltak fra Arena event" }
+    }
+
+    fun sendSøknadBruker() {
+        LOG.info { "vi sender en søknad med brukerregistrert tiltak event" }
+        // language=JSON
+        val json = """
+            {
+              "@event_name": "søknad_mottatt",
+              "søknad": {
+                "id": "12918",
+                "fornavn": "USNOBBET",
+                "etternavn": "BJELKE",
+                "ident": "07878896291",
+                "deltarKvp": false,
+                "deltarIntroduksjonsprogrammet": true,
+                "oppholdInstitusjon": false,
+                "typeInstitusjon": null,
+                "opprettet": "2022-04-08T15:39:56.242",
+                "barnetillegg": [],
+                "arenaTiltak": null,
+                "brukerregistrertTiltak": {
+                  "tiltakstype": "Annet",
+                  "arrangoernavn": "test as",
+                  "beskrivelse": "Intro",
+                  "fom": "2022-04-01",
+                  "tom": "2022-04-22",
+                  "adresse": "Storgata 1",
+                  "postnummer": "0318",
+                  "antallDager": 5
+                }
+              },
+              "@id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
+              "@opprettet": "2022-08-26T13:52:58.645834",
+              "system_read_count": 0,
+              "system_participating_services": [
+                {
+                  "id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
+                  "time": "2022-08-26T13:52:58.645834"
+                }
+              ]
+            }
+        """.trimIndent()
+        rapidsConnection.publish(json)
+        LOG.info { "vi sendte en søknad med brukerregistrert tiltak event" }
     }
 }

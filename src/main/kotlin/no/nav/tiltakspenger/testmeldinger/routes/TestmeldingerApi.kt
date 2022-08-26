@@ -3,14 +3,11 @@ package no.nav.tiltakspenger.testmeldinger.routes
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import io.ktor.serialization.jackson.jackson
-import io.ktor.server.application.Application
-import io.ktor.server.application.call
-import io.ktor.server.application.install
-import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.server.response.respond
-import io.ktor.server.routing.get
-import io.ktor.server.routing.routing
+import io.ktor.serialization.jackson.*
+import io.ktor.server.application.*
+import io.ktor.server.plugins.contentnegotiation.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import mu.KotlinLogging
 import no.nav.tiltakspenger.testmeldinger.TestmeldingPublisher
 
@@ -30,8 +27,12 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             call.respond("{ \"okidokey\": true }")
         }
         LOG.info("Setting up soknad path")
-        get("/soknad") {
-            testmeldingPublisher.sendSøknad()
+        get("/soknad/arena") {
+            testmeldingPublisher.sendSøknadArena()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/soknad/bruker") {
+            testmeldingPublisher.sendSøknadBruker()
             call.respond("{ \"okidokey\": true }")
         }
     }
