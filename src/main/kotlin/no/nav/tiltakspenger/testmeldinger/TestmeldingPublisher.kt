@@ -88,6 +88,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         LOG.info { "vi sendte en institusjon behovsmelding" }
     }
 
+    @Suppress("LongMethod")
     fun sendSøknadArena() {
         LOG.info { "vi sender en søknad med tiltak fra Arenaevent" }
         // language=JSON
