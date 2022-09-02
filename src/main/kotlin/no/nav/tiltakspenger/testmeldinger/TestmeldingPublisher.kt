@@ -106,18 +106,16 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "opprettet": "2021-12-20T13:08:38.444",
             "barnetillegg": [
               {
-                "fornavn": "SMEKKER",
-                "etternavn": "STAUDE",
-                "alder": 8,
                 "ident": "16081376917",
-                "bosted": "NOR"
+                "fødselsdato": null,
+                "alder": 8,
+                "land": "NOR"
               },
               {
-                "fornavn": null,
-                "etternavn": null,
-                "alder": 13,
-                "ident": "13120875919",
-                "bosted": "NOR"
+                "ident": null,
+                "fødselsdato": "2019-01-01",
+                "alder": 3,
+                "land": "NOR"
               }
             ],
             "arenaTiltak": {
