@@ -129,7 +129,21 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
               "sluttdato": "2021-12-31",
               "startdato": "2021-12-06"
             },
-            "brukerregistrertTiltak": null
+            "brukerregistrertTiltak": null,
+            "trygdOgPensjon": [
+                    {
+                      "utbetaler": "Manchester United",
+                      "prosent": null,
+                      "fom": "2021-02-09",
+                      "tom": "2022-08-02"
+                    },
+                    {
+                      "utbetaler": "Bayern München",
+                      "prosent": 30,
+                      "fom": "2022-08-10",
+                      "tom": null
+                    }
+            ]
           },
           "@id": "bc5592c4-923b-4cf7-9bb9-013fb041b560",
           "@opprettet": "2022-08-26T13:50:36.26047",
@@ -173,7 +187,21 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
                   "adresse": "Storgata 1",
                   "postnummer": "0318",
                   "antallDager": 5
-                }
+                },
+                "trygdOgPensjon": [
+                    {
+                      "utbetaler": "Manchester United",
+                      "prosent": null,
+                      "fom": "2021-02-09",
+                      "tom": "2022-08-02"
+                    },
+                    {
+                      "utbetaler": "Bayern München",
+                      "prosent": 30,
+                      "fom": "2022-08-10",
+                      "tom": null
+                    }
+                ]
               },
               "@id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
               "@opprettet": "2022-08-26T13:52:58.645834",
