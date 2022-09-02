@@ -204,6 +204,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
                     }
                 ]
               },
+              "fritekst": "en fritekst",
               "@id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
               "@opprettet": "2022-08-26T13:52:58.645834",
               "system_read_count": 0,
