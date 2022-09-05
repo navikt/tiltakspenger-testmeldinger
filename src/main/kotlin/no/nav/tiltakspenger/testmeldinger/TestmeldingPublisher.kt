@@ -8,18 +8,18 @@ private val LOG = KotlinLogging.logger { }
 class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
 
     fun sendPersonBehovTestMessage() {
-        LOG.info { "vi sender en person behovsmelding" }
+        LOG.info { "vi sender en personopplysninger behovsmelding" }
         // language=JSON
         val json = """
             { 
-            "@behov" : ["persondata"],
+            "@behov" : ["personopplysninger"],
             "@id" : "test",
             "@behovId": "behovId",
             "ident": "04078309135",
             "testmelding": true
             }""".trimIndent()
         rapidsConnection.publish(json)
-        LOG.info { "vi sendte en person behovsmelding" }
+        LOG.info { "vi sendte en personopplysninger behovsmelding" }
     }
 
     fun sendYtelserBehovTestMessage() {
