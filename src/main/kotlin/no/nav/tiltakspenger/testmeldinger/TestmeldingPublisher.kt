@@ -96,67 +96,46 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         {
           "@event_name": "søknad_mottatt",
           "søknad": {
-            "id": "12008",
-            "fornavn": "TALENTFULL",
-            "etternavn": "BOLLE",
-            "ident": "20058803546",
+            "søknadId": "13503",
+            "journalpostId": "573779888",
+            "dokumentInfoId": "599041621",
+            "fornavn": "DYPSINDIG",
+            "etternavn": "IDÉ",
+            "ident": "05906398291",
             "deltarKvp": false,
             "deltarIntroduksjonsprogrammet": false,
             "oppholdInstitusjon": false,
             "typeInstitusjon": null,
-            "opprettet": "2021-12-20T13:08:38.444",
-            "barnetillegg": [
-              {
-                "ident": "16081376917",
-                "fødselsdato": null,
-                "alder": 8,
-                "land": "NOR"
-              },
-              {
-                "ident": null,
-                "fødselsdato": "2019-01-01",
-                "alder": 3,
-                "land": "NOR"
-              }
-            ],
+            "opprettet": "2022-09-14T16:02:25.711",
+            "barnetillegg": [],
             "arenaTiltak": {
-              "arenaId": "136347592",
-              "arrangoer": "JOBLEARN AS",
-              "harSluttdatoFraArena": false,
-              "navn": "Jobbklubb",
+              "arenaId": "138377101",
+              "arrangoer": "STENDI SENIOR AS",
+              "harSluttdatoFraArena": true,
+              "tiltakskode": "ARBTREN",
               "erIEndreStatus": false,
-              "opprinneligSluttdato": null,
-              "opprinneligStartdato": "2021-12-06",
-              "sluttdato": "2021-12-31",
-              "startdato": "2021-12-06"
+              "opprinneligSluttdato": "2022-08-31",
+              "opprinneligStartdato": "2022-07-04",
+              "sluttdato": "2022-08-31",
+              "startdato": "2022-07-04"
             },
             "brukerregistrertTiltak": null,
-            "trygdOgPensjon": [
-                    {
-                      "utbetaler": "Manchester United",
-                      "prosent": null,
-                      "fom": "2021-02-09",
-                      "tom": "2022-08-02"
-                    },
-                    {
-                      "utbetaler": "Bayern München",
-                      "prosent": 30,
-                      "fom": "2022-08-10",
-                      "tom": null
-                    }
-            ]
+            "trygdOgPensjon": null,
+            "fritekst": "fritekst fra pj"
           },
-          "@id": "bc5592c4-923b-4cf7-9bb9-013fb041b560",
-          "@opprettet": "2022-08-26T13:50:36.26047",
+          "@id": "43942a8b-79ff-47ba-a873-9270dcdb96a8",
+          "@opprettet": "2022-09-14T16:03:31.559217697",
           "system_read_count": 0,
           "system_participating_services": [
             {
-              "id": "bc5592c4-923b-4cf7-9bb9-013fb041b560",
-              "time": "2022-08-26T13:50:36.260470"
+              "id": "43942a8b-79ff-47ba-a873-9270dcdb96a8",
+              "time": "2022-09-14T16:03:31.559217697",
+              "service": "tiltakspenger-mottak",
+              "instance": "tiltakspenger-mottak-79bf794c96-pdc5q",
+              "image": "ghcr.io/navikt/tiltakspenger-mottak:7e4e29e84c524a8d47a2dc9c2585f1f1fe13bdac"
             }
           ]
-        }
-        """.trimIndent()
+      }""".trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en søknad med tiltak fra Arena event" }
     }
