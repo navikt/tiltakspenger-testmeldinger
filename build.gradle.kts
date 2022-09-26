@@ -34,7 +34,7 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jvm:$ktorVersion")
     implementation("io.ktor:ktor-utils-jvm:$ktorVersion")
 
-    implementation("com.github.navikt:rapids-and-rivers:2022082414021661342533.46a423f6c163")
+    implementation("com.github.navikt:rapids-and-rivers:2022092314391663936769.9d5d33074875")
 
     implementation("net.logstash.logback:logstash-logback-encoder:7.2")
     implementation("ch.qos.logback:logback-classic:1.4.1")
