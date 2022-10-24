@@ -18,11 +18,23 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
     LOG.info("Setting up routing")
     routing {
         LOG.info("Setting up testmeldinger path")
-        get("/testmeldinger") {
+        get("/testmeldinger/person") {
             testmeldingPublisher.sendPersonBehovTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/testmeldinger/ytelser") {
             testmeldingPublisher.sendYtelserBehovTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/testmeldinger/tiltak") {
             testmeldingPublisher.sendTiltakBehovTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/testmeldinger/skjerming") {
             testmeldingPublisher.sendSkjermingBehovTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
+        get("/testmeldinger/inst") {
             testmeldingPublisher.sendInstitusjonBehovTestMessage()
             call.respond("{ \"okidokey\": true }")
         }
