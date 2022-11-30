@@ -198,4 +198,21 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en søknad med brukerregistrert tiltak event" }
     }
+
+    fun sendFpTestMessage() {
+        LOG.info { "vi sender en fp behovsmelding" }
+        // language=JSON
+        val json = """
+            {
+            "@behov" : ["fpytelser"],
+            "@id" : "test",
+            "@behovId": "behovId",
+            "ident": "10108000398",
+            "fom" : "2019-10-01",
+            "tom" : "2022-06-01",
+            "testmelding": true
+            }""".trimIndent()
+        rapidsConnection.publish(json)
+        LOG.info { "vi sendte en fp behovsmelding" }
+    }
 }

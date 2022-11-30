@@ -38,6 +38,10 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendInstitusjonBehovTestMessage()
             call.respond("{ \"okidokey\": true }")
         }
+        get("/testmeldinger/fp") {
+            testmeldingPublisher.sendFpTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
         LOG.info("Setting up soknad path")
         get("/soknad/arena") {
             testmeldingPublisher.sendSøknadArena()
