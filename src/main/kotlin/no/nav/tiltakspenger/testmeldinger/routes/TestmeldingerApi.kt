@@ -42,6 +42,10 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendFpTestMessage()
             call.respond("{ \"okidokey\": true }")
         }
+        get("/testmeldinger/ufore") {
+            testmeldingPublisher.sendUføreTestMessage()
+            call.respond("{ \"okidokey\": true }")
+        }
         LOG.info("Setting up soknad path")
         get("/soknad/arena") {
             testmeldingPublisher.sendSøknadArena()
