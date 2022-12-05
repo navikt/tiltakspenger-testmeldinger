@@ -1,7 +1,8 @@
 tiltakspenger-testmeldinger
 ================
+App som kan sende ut testmeldinger på Rapiden. Deployes bare til dev på https://tiltakspenger-testmeldinger.dev.intern.nav.no/
 
-App som kan sende ut testmeldinger på Rapiden. Deployes bare til dev
+Sjekk [TestmeldingerApi](src/main/kotlin/no/nav/tiltakspenger/testmeldinger/routes/TestmeldingerApi.kt) for å se hvilke endepunkt som er tilgjengelige
 
 En del av satsningen ["Flere i arbeid – P4"](https://memu.no/artikler/stor-satsing-skal-fornye-navs-utdaterte-it-losninger-og-digitale-verktoy/)
 
