@@ -43,7 +43,9 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             call.respond("{ \"okidokey\": true }")
         }
         get("/testmeldinger/ufore") {
-            testmeldingPublisher.sendUføreTestMessage()
+            val fom = call.request.queryParameters["fom"] ?: "2022-01-01"
+            val tom = call.request.queryParameters["tom"] ?: "2022-12-31"
+            testmeldingPublisher.sendUføreTestMessage(fom, tom)
             call.respond("{ \"okidokey\": true }")
         }
         LOG.info("Setting up soknad path")
