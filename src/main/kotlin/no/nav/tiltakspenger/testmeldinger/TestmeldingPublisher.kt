@@ -207,7 +207,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "@behov" : ["fpytelser"],
             "@id" : "test",
             "@behovId": "behovId",
-            "ident": "21479141247",
+            "ident": "08479137723",
             "fom" : "2003-10-01",
             "tom" : "2022-12-30",
             "testmelding": true
