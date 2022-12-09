@@ -208,8 +208,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "@id" : "test",
             "@behovId": "behovId",
             "ident": "21479141247",
-            "fom" : "2019-10-01",
-            "tom" : "2022-06-01",
+            "fom" : "2003-10-01",
+            "tom" : "2022-12-30",
             "testmelding": true
             }""".trimIndent()
         rapidsConnection.publish(json)
