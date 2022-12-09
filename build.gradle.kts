@@ -1,6 +1,6 @@
 val javaVersion = JavaVersion.VERSION_17
 val jacksonVersion = "2.14.1"
-val ktorVersion = "2.1.3"
+val ktorVersion = "2.2.1"
 val mockkVersion = "1.13.3"
 
 plugins {
@@ -39,7 +39,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.5")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 
-    implementation("org.jetbrains:annotations:23.0.0")
+    implementation("org.jetbrains:annotations:23.1.0")
     implementation("com.natpryce:konfig:1.6.10.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
