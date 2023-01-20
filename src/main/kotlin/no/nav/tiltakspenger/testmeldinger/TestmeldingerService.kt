@@ -40,7 +40,6 @@ class TestmeldingerService(
             }
             LOG.info { "testmelding med id $id og behovId $behovId hadde behov $behov og løsninger $løsninger " }
             SECURELOG.debug { "mottok melding: ${packet.toJson()}" }
-
         }.onFailure {
             loggVedFeil(it)
         }.getOrThrow()
@@ -50,7 +49,6 @@ class TestmeldingerService(
         LOG.info { "meldingen validerte ikke: $problems" }
     }
 
-    @Suppress("EmptyFunctionBlock")
     override fun onSevere(error: MessageProblems.MessageException, context: MessageContext) {
     }
 

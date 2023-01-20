@@ -17,7 +17,7 @@ internal class ApplicationBuilder(config: Map<String, String>) : RapidsConnectio
     }.build()
 
     private val testmeldingPublisher = TestmeldingPublisher(rapidsConnection = rapidsConnection)
-    //private val testmeldingerService = TestmeldingerService(rapidsConnection = rapidsConnection)
+    // private val testmeldingerService = TestmeldingerService(rapidsConnection = rapidsConnection)
 
     init {
         TestmeldingerService(rapidsConnection = rapidsConnection)
@@ -34,7 +34,7 @@ internal class ApplicationBuilder(config: Map<String, String>) : RapidsConnectio
 
     override fun onShutdown(rapidsConnection: RapidsConnection) {
         LOG.info { "Stopping tiltakspenger-testmeldinger" }
-        //super.onShutdown(rapidsConnection)
+        // super.onShutdown(rapidsConnection)
     }
 
     private fun testmeldingPublisher(): TestmeldingPublisher = testmeldingPublisher

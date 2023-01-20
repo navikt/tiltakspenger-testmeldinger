@@ -17,7 +17,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "@behovId": "behovId",
             "ident": "04078309135",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en personopplysninger behovsmelding" }
     }
@@ -34,7 +35,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "fom" : "2019-10-01",
             "tom" : "2022-06-01",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en ytelser behovsmelding" }
     }
@@ -49,7 +51,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "@behovId": "behovId",
             "ident": "05906398291",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en tiltak behovsmelding" }
     }
@@ -66,7 +69,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "fom" : "2019-10-01",
             "tom" : "2022-06-01",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en skjerming behovsmelding" }
     }
@@ -83,12 +87,12 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "fom" : "2019-10-01",
             "tom" : "2022-06-01",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en institusjon behovsmelding" }
     }
 
-    @Suppress("LongMethod")
     fun sendSøknadArena() {
         LOG.info { "vi sender en søknad med tiltak fra Arenaevent" }
         // language=JSON
@@ -135,7 +139,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
               "image": "ghcr.io/navikt/tiltakspenger-mottak:7e4e29e84c524a8d47a2dc9c2585f1f1fe13bdac"
             }
           ]
-      }""".trimIndent()
+      }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en søknad med tiltak fra Arena event" }
     }
@@ -211,7 +216,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "fom" : "2003-10-01",
             "tom" : "2022-12-30",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en fp behovsmelding" }
     }
@@ -228,7 +234,8 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "fom" : "$fom",
             "tom" : "$tom",
             "testmelding": true
-            }""".trimIndent()
+            }
+        """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en uføre behovsmelding" }
     }
