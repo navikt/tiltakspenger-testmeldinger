@@ -25,13 +25,13 @@ object Configuration {
 
     private val localProperties = ConfigurationMap(
         mapOf(
-            "application.profile" to Profile.LOCAL.toString()
-        )
+            "application.profile" to Profile.LOCAL.toString(),
+        ),
     )
     private val devProperties = ConfigurationMap(
         mapOf(
             "application.profile" to Profile.DEV.toString(),
-        )
+        ),
     )
 
     private fun config() = when (System.getenv("NAIS_CLUSTER_NAME") ?: System.getProperty("NAIS_CLUSTER_NAME")) {

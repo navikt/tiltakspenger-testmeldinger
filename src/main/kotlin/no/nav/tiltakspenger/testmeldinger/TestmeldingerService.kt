@@ -35,7 +35,7 @@ class TestmeldingerService(
                 it.info(
                     "tracker testmelding med {} og {}",
                     StructuredArguments.keyValue("id", id),
-                    StructuredArguments.keyValue("behovId", behovId)
+                    StructuredArguments.keyValue("behovId", behovId),
                 )
             }
             LOG.info { "testmelding med id $id og behovId $behovId hadde behov $behov og løsninger $løsninger " }

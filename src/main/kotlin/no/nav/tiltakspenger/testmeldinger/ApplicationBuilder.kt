@@ -10,7 +10,7 @@ private val LOG = KotlinLogging.logger { }
 internal class ApplicationBuilder(config: Map<String, String>) : RapidsConnection.StatusListener {
 
     private val rapidsConnection: RapidsConnection = RapidApplication.Builder(
-        RapidApplication.RapidApplicationConfig.fromEnv(config)
+        RapidApplication.RapidApplicationConfig.fromEnv(config),
     ).withKtorModule {
         // naisRoutes() Denne var ikke i bruk i -vedtak, så jeg kommenterer den ut her også
         testmeldingerAPI(testmeldingPublisher())
