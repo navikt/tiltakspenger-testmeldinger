@@ -52,6 +52,13 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendUføreTestMessage(ident, fom, tom)
             call.respond("{ \"okidokey\": true }")
         }
+        get("/testmeldinger/overgansstonad") {
+            val ident = call.request.queryParameters["ident"] ?: "09015607561"
+            val fom = call.request.queryParameters["fom"] ?: "2021-01-01"
+            val tom = call.request.queryParameters["tom"] ?: "2023-12-31"
+            testmeldingPublisher.sendOvergangsstonadTestMessage(ident, fom, tom)
+            call.respond("{ \"okidokey\": true }")
+        }
         LOG.info("Setting up soknad path")
         get("/soknad/arena") {
             testmeldingPublisher.sendSøknadArena()

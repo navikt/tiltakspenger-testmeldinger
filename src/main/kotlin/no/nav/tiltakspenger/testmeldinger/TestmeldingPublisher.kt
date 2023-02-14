@@ -239,4 +239,22 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en uføre behovsmelding" }
     }
+
+    fun sendOvergangsstonadTestMessage(ident: String, fom: String, tom: String) {
+        LOG.info { "vi sender en overgangsstonad behovsmelding" }
+        // language=JSON
+        val json = """
+            {
+            "@behov" : ["overgangsstønad"],
+            "@id" : "test",
+            "@behovId": "behovId",
+            "ident": "$ident",
+            "fom" : "$fom",
+            "tom" : "$tom",
+            "testmelding": true
+            }
+        """.trimIndent()
+        rapidsConnection.publish(json)
+        LOG.info { "vi sendte en overgangsstonad behovsmelding" }
+    }
 }
