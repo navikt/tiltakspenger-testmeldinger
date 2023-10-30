@@ -41,15 +41,15 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         LOG.info { "vi sendte en ytelser behovsmelding" }
     }
 
-    fun sendTiltakBehovTestMessage() {
+    fun sendTiltakBehovTestMessage(ident: String) {
         LOG.info { "vi sender en tiltak behovsmelding" }
         // language=JSON
         val json = """
             { 
-            "@behov" : ["arenatiltak"],
+            "@behov" : ["tiltak"],
             "@id" : "test",
             "@behovId": "behovId",
-            "ident": "05906398291",
+            "ident": $ident,
             "testmelding": true
             }
         """.trimIndent()

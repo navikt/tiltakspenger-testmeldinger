@@ -30,7 +30,8 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             call.respond("{ \"okidokey\": true }")
         }
         get("/testmeldinger/tiltak") {
-            testmeldingPublisher.sendTiltakBehovTestMessage()
+            val ident = call.parameters["ident"] ?: "05906398291"
+            testmeldingPublisher.sendTiltakBehovTestMessage(ident)
             call.respond("{ \"okidokey\": true }")
         }
         get("/testmeldinger/skjerming") {
