@@ -29,7 +29,7 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendYtelserBehovTestMessage()
             call.respond("{ \"okidokey\": true }")
         }
-        get("/testmeldinger/tiltak") {
+        get("/testmeldinger/tiltak/{ident}") {
             val ident = call.parameters["ident"] ?: "05906398291"
             testmeldingPublisher.sendTiltakBehovTestMessage(ident)
             call.respond("{ \"okidokey\": true }")

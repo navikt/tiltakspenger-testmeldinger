@@ -49,7 +49,7 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
             "@behov" : ["tiltak"],
             "@id" : "test",
             "@behovId": "behovId",
-            "ident": $ident,
+            "ident": "$ident",
             "testmelding": true
             }
         """.trimIndent()
