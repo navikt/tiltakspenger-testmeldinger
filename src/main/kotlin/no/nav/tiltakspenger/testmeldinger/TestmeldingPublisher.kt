@@ -2,6 +2,7 @@ package no.nav.tiltakspenger.testmeldinger
 
 import mu.KotlinLogging
 import no.nav.helse.rapids_rivers.RapidsConnection
+import java.time.LocalDate
 
 private val LOG = KotlinLogging.logger { }
 
@@ -202,6 +203,70 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         """.trimIndent()
         rapidsConnection.publish(json)
         LOG.info { "vi sendte en søknad med brukerregistrert tiltak event" }
+    }
+
+    fun sendGrunnlag() {
+        LOG.info { "vi sender grunnlag" }
+        // language=JSON
+        val json = """
+            {
+              "@event_name": "meldekortGrunnlag",
+              "@opprettet": "2023-12-15T14:03:02.892993857",
+              "meldekortGrunnlag": {
+                "vedtakId": "vedtak_01HHPS5FPYDVHZ13WVPPAD1B5N",
+                "behandlingId": "beh_01HCMBX9TWK1631K3G7J37117R",
+                "status": "INNVILGET",
+                "vurderingsperiode": {
+                  "fra": "2023-11-27",
+                  "til": "2024-03-22"
+                },
+                "tiltak": [
+                  {
+                    "periodeDTO": {
+                      "fra": "2023-08-20",
+                      "til": "2024-06-30"
+                    },
+                    "typeBeskrivelse": "Enkeltplass Fag- og yrkesopplæring VGS og høyere yrkesfaglig utdanning",
+                    "typeKode": "ENKFAGYRKE",
+                    "antDagerIUken": 0.0
+                  }
+                ]
+              },
+              "@id": "a0c65219-6b90-41ec-8b33-f9ec7382e857",
+              "testmelding": true,
+              "system_read_count": 0,
+              "system_participating_services": [
+                {
+                  "id": "a0c65219-6b90-41ec-8b33-f9ec7382e857",
+                  "time": "2023-12-15T14:03:02.894993063"
+                }
+              ]
+            }
+        """.trimIndent()
+        rapidsConnection.publish(json)
+        LOG.info { "vi sendte grunnlag" }
+    }
+    fun sendNyDag(dag: String) {
+        LOG.info { "vi sender en ny dag" }
+        // language=JSON
+        val json = """
+            {
+            "@event_name" : "dayHasBegunEvent",
+            "dayHasBegun": "$dag",
+            "testmelding": true,
+            "@id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
+            "@opprettet": "2022-08-26T13:52:58.645834",
+            "system_read_count": 0,
+            "system_participating_services": [
+                {
+                  "id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
+                  "time": "2022-08-26T13:52:58.645834"
+                }
+            ]
+            }
+        """.trimIndent()
+        rapidsConnection.publish(json)
+        LOG.info { "vi sendte en ny dag" }
     }
 
     fun sendFpTestMessage() {
