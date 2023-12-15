@@ -2,7 +2,6 @@ package no.nav.tiltakspenger.testmeldinger
 
 import mu.KotlinLogging
 import no.nav.helse.rapids_rivers.RapidsConnection
-import java.time.LocalDate
 
 private val LOG = KotlinLogging.logger { }
 
