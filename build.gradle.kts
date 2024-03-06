@@ -38,7 +38,7 @@ dependencies {
     implementation("com.github.navikt:rapids-and-rivers:2024022311041708682651.01821651ed22")
 
     implementation("net.logstash.logback:logstash-logback-encoder:7.4")
-    implementation("ch.qos.logback:logback-classic:1.5.2")
+    implementation("ch.qos.logback:logback-classic:1.5.3")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
     implementation("org.jetbrains:annotations:24.1.0")
