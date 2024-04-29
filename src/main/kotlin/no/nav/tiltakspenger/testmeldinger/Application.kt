@@ -13,6 +13,6 @@ fun main() {
         securelog.error(e) { e.message }
     }
     log.info { "entering main" }
-    ApplicationBuilder(Configuration.rapidsAndRivers).start()
+    ApplicationBuilder().start()
     log.info { "ending main" }
 }

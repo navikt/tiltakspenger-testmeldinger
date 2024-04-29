@@ -7,10 +7,14 @@ import no.nav.tiltakspenger.testmeldinger.routes.testmeldingerAPI
 
 private val LOG = KotlinLogging.logger { }
 
-internal class ApplicationBuilder(config: Map<String, String>) : RapidsConnection.StatusListener {
+internal class ApplicationBuilder() : RapidsConnection.StatusListener {
 
     private val rapidsConnection: RapidsConnection = RapidApplication.Builder(
-        RapidApplication.RapidApplicationConfig.fromEnv(config),
+        if (Configuration.applicationProfile() == Profile.LOCAL) {
+            RapidApplication.RapidApplicationConfig.fromEnv(Configuration.rapidsAndRivers, LokalKafkaConfig())
+        } else {
+            RapidApplication.RapidApplicationConfig.fromEnv(Configuration.rapidsAndRivers)
+        },
     ).withKtorModule {
         // naisRoutes() Denne var ikke i bruk i -vedtak, så jeg kommenterer den ut her også
         testmeldingerAPI(testmeldingPublisher())
