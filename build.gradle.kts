@@ -1,6 +1,6 @@
 val javaVersion = JavaVersion.VERSION_21
 val jacksonVersion = "2.17.0"
-val ktorVersion = "2.3.9"
+val ktorVersion = "2.3.10"
 val mockkVersion = "1.13.10"
 
 plugins {
@@ -35,10 +35,10 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jvm:$ktorVersion")
     implementation("io.ktor:ktor-utils-jvm:$ktorVersion")
 
-    implementation("com.github.navikt:rapids-and-rivers:2024022311041708682651.01821651ed22")
+    implementation("com.github.navikt:rapids-and-rivers:2024041714471713358051.71746f05c18e")
 
     implementation("net.logstash.logback:logstash-logback-encoder:7.4")
-    implementation("ch.qos.logback:logback-classic:1.5.3")
+    implementation("ch.qos.logback:logback-classic:1.5.6")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
     implementation("org.jetbrains:annotations:24.1.0")
