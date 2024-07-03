@@ -1,4 +1,4 @@
 kafka:
   pool: nav-dev
 ingress:
-  url: https://tiltakspenger-testmeldinger.intern.dev.nav.no
+  url: https://tiltakspenger-testmeldinger.ansatt.dev.nav.no
