@@ -18,11 +18,11 @@ object Configuration {
         "KAFKA_RAPID_TOPIC" to "tpts.rapid.v1",
         "KAFKA_RESET_POLICY" to "latest",
         "KAFKA_CONSUMER_GROUP_ID" to "tiltakspenger-testmeldinger-v1",
-        "HTTP_PORT" to "8088",
+        "HTTP_PORT" to "8080",
     )
 
     private val otherDefaultProperties = mapOf(
-        "application.httpPort" to 8088.toString(),
+        "application.httpPort" to 8080.toString(),
     )
     private val defaultProperties = ConfigurationMap(rapidsAndRivers + otherDefaultProperties)
 
