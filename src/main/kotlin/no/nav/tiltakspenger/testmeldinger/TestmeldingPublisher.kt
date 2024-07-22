@@ -245,28 +245,6 @@ class TestmeldingPublisher(private val rapidsConnection: RapidsConnection) {
         rapidsConnection.publish(json)
         LOG.info { "vi sendte grunnlag" }
     }
-    fun sendNyDag(dag: String) {
-        LOG.info { "vi sender en ny dag" }
-        // language=JSON
-        val json = """
-            {
-            "@event_name" : "dayHasBegunEvent",
-            "dayHasBegun": "$dag",
-            "testmelding": true,
-            "@id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
-            "@opprettet": "2022-08-26T13:52:58.645834",
-            "system_read_count": 0,
-            "system_participating_services": [
-                {
-                  "id": "bcf2e0e7-e9ad-494e-9ec2-3300b790d224",
-                  "time": "2022-08-26T13:52:58.645834"
-                }
-            ]
-            }
-        """.trimIndent()
-        rapidsConnection.publish(json)
-        LOG.info { "vi sendte en ny dag" }
-    }
 
     fun sendFpTestMessage() {
         LOG.info { "vi sender en fp behovsmelding" }

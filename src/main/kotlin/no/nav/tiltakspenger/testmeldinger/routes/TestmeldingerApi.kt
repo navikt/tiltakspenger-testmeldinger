@@ -69,11 +69,6 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
             testmeldingPublisher.sendSøknadBruker()
             call.respond("{ \"okidokey\": true }")
         }
-        get("/nydag") {
-            val dag = call.request.queryParameters["dag"] ?: "2023-10-01"
-            testmeldingPublisher.sendNyDag(dag)
-            call.respond("{ \"okidokey\": true }")
-        }
         get("/grunnlag") {
             testmeldingPublisher.sendGrunnlag()
             call.respond("{ \"okidokey\": true }")
