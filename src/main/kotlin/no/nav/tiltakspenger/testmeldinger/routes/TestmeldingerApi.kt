@@ -21,45 +21,6 @@ internal fun Application.testmeldingerAPI(testmeldingPublisher: TestmeldingPubli
     LOG.info("Setting up routing")
     routing {
         LOG.info("Setting up testmeldinger path")
-        get("/testmeldinger/person") {
-            testmeldingPublisher.sendPersonBehovTestMessage()
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/ytelser") {
-            testmeldingPublisher.sendYtelserBehovTestMessage()
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/tiltak/{ident}") {
-            val ident = call.parameters["ident"] ?: "05906398291"
-            testmeldingPublisher.sendTiltakBehovTestMessage(ident)
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/skjerming") {
-            testmeldingPublisher.sendSkjermingBehovTestMessage()
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/inst") {
-            testmeldingPublisher.sendInstitusjonBehovTestMessage()
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/fp") {
-            testmeldingPublisher.sendFpTestMessage()
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/ufore") {
-            val ident = call.request.queryParameters["ident"] ?: "09015607561"
-            val fom = call.request.queryParameters["fom"] ?: "2022-01-01"
-            val tom = call.request.queryParameters["tom"] ?: "2022-12-31"
-            testmeldingPublisher.sendUføreTestMessage(ident, fom, tom)
-            call.respond("{ \"okidokey\": true }")
-        }
-        get("/testmeldinger/overgansstonad") {
-            val ident = call.request.queryParameters["ident"] ?: "09015607561"
-            val fom = call.request.queryParameters["fom"] ?: "2021-01-01"
-            val tom = call.request.queryParameters["tom"] ?: "2023-12-31"
-            testmeldingPublisher.sendOvergangsstonadTestMessage(ident, fom, tom)
-            call.respond("{ \"okidokey\": true }")
-        }
         LOG.info("Setting up soknad path")
         get("/soknad/arena") {
             testmeldingPublisher.sendSøknadArena()
